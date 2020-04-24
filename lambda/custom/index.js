@@ -15,7 +15,7 @@ const https = require('https');
 
 // settings
 let myRegion = 'us-east-1'; // edit for your desired region (only eu-west-1 and us-west-1 support neural TTS voices) Joanna and Matthew
-const myBucket = 'dmdnd'; //bucket-name for uploading
+const myBucket = 'your bucket name'; //bucket-name for uploading
 var base = new Airtable({apiKey:variables.ApiAirtable}).base('enter base id');  //update base id here and go to varaibles.js to update the API id
 
 //initialize polly and s3
