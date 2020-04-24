@@ -35,10 +35,10 @@ It allows you to generate Amazon Polly Voices in different languages mixed with 
 12. You may email me directly wrongholt@gmail.com or hit me up on twitter or facebook. https://twitter.com/wrongholt https://www.facebook.com/wrongholt
 
 # Screenshots for reference
-<img width="400" alt="airtable base" src="https://s3.us-east-2.amazonaws.com/wrongholt.com/Screen+Shot+2020-04-24+at+12.39.29+PM.png"/>
+<img width="100" alt="create a new base" src="https://s3.us-east-2.amazonaws.com/wrongholt.com/Screen+Shot+2020-04-24+at+12.39.42+PM.png"/>
 
-<img width="400" alt="create a new base" src="https://s3.us-east-2.amazonaws.com/wrongholt.com/Screen+Shot+2020-04-24+at+12.39.42+PM.png"/>
+<img width="500" alt="airtable base" src="https://s3.us-east-2.amazonaws.com/wrongholt.com/Screen+Shot+2020-04-24+at+12.39.29+PM.png"/>
 
-<img width="400" alt="base id" src="https://s3.us-east-2.amazonaws.com/wrongholt.com/Screen+Shot+2020-04-24+at+12.44.49+PM.png"/>
+<img width="500" alt="base id" src="https://s3.us-east-2.amazonaws.com/wrongholt.com/Screen+Shot+2020-04-24+at+12.44.49+PM.png"/>
 
 
