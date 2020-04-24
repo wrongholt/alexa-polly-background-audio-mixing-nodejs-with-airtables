@@ -1,9 +1,75 @@
 {
   "deploy_settings": {
     "default": {
-      "skill_id": "",
+      "skill_id": "amzn1.ask.skill.24235778-505e-4c6d-b7ec-347cd409fb79",
       "was_cloned": false,
-      "merge": {}
+      "merge": {},
+      "resources": {
+        "manifest": {
+          "eTag": "89b4cc78a256faa39dfa2df2f97bd6e0"
+        },
+        "interactionModel": {
+          "de-DE": {
+            "eTag": "b8ab3edb38e7f1f8b73c0dbed22e833c"
+          },
+          "en-AU": {
+            "eTag": "f2e5d05e045f8af0b29f31ef898680ac"
+          },
+          "en-GB": {
+            "eTag": "08a3fc3f3ecc50a16d047bdace157df7"
+          },
+          "en-CA": {
+            "eTag": "dbfda777cebc8397625bde13cd647405"
+          },
+          "en-US": {
+            "eTag": "7deea9186c709bbf3b33618ff9641d0b"
+          },
+          "en-IN": {
+            "eTag": "bfd8c10b9b87eab11467f919207ce5c7"
+          },
+          "es-MX": {
+            "eTag": "71427f50b57245cacf53ed4ce7f79bdf"
+          },
+          "fr-CA": {
+            "eTag": "cc083108fe87be5e0fe5be1bdf144538"
+          },
+          "hi-IN": {
+            "eTag": "e3276ffab6aa0eeb8dc99aaa41f61738"
+          },
+          "ja-JP": {
+            "eTag": "f3696ae2e46a852b9e4d3cc92e922062"
+          },
+          "es-ES": {
+            "eTag": "1fa59e99fe0718cc24a850661e535983"
+          },
+          "fr-FR": {
+            "eTag": "f744e0788f52ac95d221779136f20082"
+          },
+          "pt-BR": {
+            "eTag": "414256199ecfd656aef7e6fbbf10f51e"
+          },
+          "es-US": {
+            "eTag": "3930d22c837fb37447fbae32bd4817dd"
+          },
+          "it-IT": {
+            "eTag": "180bf0295a47ba0cb7f7bdb542080803"
+          }
+        },
+        "lambda": [
+          {
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:837782226885:function:ask-custom-audio-polly-tool-default",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "ask-custom-audio-polly-tool-default",
+            "handler": "index.handler",
+            "revisionId": "5b6c1663-091a-4b04-ba48-6d0833309bd1",
+            "runtime": "nodejs10.x"
+          }
+        ]
+      }
     }
   }
 }

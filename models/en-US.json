@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "hello world",
+            "invocationName": "mix audio polly",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
