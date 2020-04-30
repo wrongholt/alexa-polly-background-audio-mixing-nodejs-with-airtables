@@ -42,6 +42,7 @@ const generatePollyAudio = (text, voiceId) => {
   // Generate audio from Polly and check if output is a Buffer
   let params;
   //neural when using neural voices Joanna or Matthew, in all other cases use 'standard'
+
   if (voiceId === "Joanna" || voiceId === "Matthew") {
     params = {
       Engine: 'neural',
@@ -97,8 +98,9 @@ const putObject = (myBucket, key, body, contentType) =>
  * last but not least, trim the resulting file so it is only as long as polly voice 
  * get more info about using command line tool sox @ http://sox.sourceforge.net/Docs/FAQ
  **/
+
 const mix_polly_with_background = (background_mp3, polly_voice_mp3, resulting_mp3, duration) =>  
-lambdaAudio.sox('-m ' + background_mp3 + ' ' + polly_voice_mp3 + ' -C 48.01 ' + resulting_mp3 + ' rate 22050 gain -l 16 trim 0 ' + duration).then(() => {
+lambdaAudio.sox('-m ' + background_mp3 + ' ' + polly_voice_mp3 + ' -C 48.01 ' + resulting_mp3 + ' rate 22050 gain -l 16 delay 2 0 fade 0 =' + (duration + 2)+' 2').then(() => {
     return resulting_mp3;
   }).catch(err => console.error("mix error: " + err));
 
@@ -144,11 +146,12 @@ lambdaAudio.sox('-m ' + background_mp3 + ' ' + polly_voice_mp3 + ' -C 48.01 ' + 
       await copyFiles();
     } //has to invoke this function in order to copy sox / lame to /tmp/ to be able to execute them later. this has to happen every time because the tmp folder get purged every few minutes - todo: implement check if files exist and have the correct permissions +x
     const pollyVoice = await generatePollyAudio(ssml, voice);
+
     await fs.outputFile('/tmp/' + polly_voice, pollyVoice.AudioStream); //writes pollyAudioStream to writeable /tmp/ folder
 
     //use this for mixing background with polly voices
     const duration = await mp3Duration('/tmp/' + polly_voice); //calculate length of polly voice. this is important for mixing result because mixing of 5 seconds polly with 10 seconds background will result in 10 seconds polly + background. but you only want the background sfx to be as long as the polly voice
-    var file = await mix_polly_with_background(new_background_sound, '/tmp/' + polly_voice, '/tmp/' + sound_mix_result, (duration + 2)); //mixes background with polly and saves to tmp folder, limited by duration of polly voice plus I added 2 seconds
+    var file = await mix_polly_with_background(new_background_sound, '/tmp/' + polly_voice, '/tmp/' + sound_mix_result, (duration + 4)); //mixes background with polly and saves to tmp folder, limited by duration of polly voice plus I added 2 seconds
     const uploadFile = await fs.readFile(file); //remove the // in front of the line to enable mixing polly with background then make sure to comment out the next line
     
     var writeToS3 = await writeAudioStreamToS3Bucket(uploadFile, sound_mix_result);
@@ -190,11 +193,11 @@ const LaunchRequestHandler = {
                 var speechItems = record.get('SpeechOutput');//these are the colomn names
                 var background_audio = record.get('BGAudio');
                 var pollyVoiceAT = record.get('PollyVoice');
+               
                 var key = record.get('key');
                   generatePollyUrl("<speak>" + speechItems + "</speak>", pollyVoiceAT,background_audio, key); //you may update the voice name here right now its set to Matthew
             });
         });
-    
         const speakOutput = "I have completed all builds thank you!";
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -202,7 +205,6 @@ const LaunchRequestHandler = {
     
 }
 };
-
 const HelpIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
