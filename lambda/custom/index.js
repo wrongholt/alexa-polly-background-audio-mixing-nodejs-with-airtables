@@ -98,7 +98,7 @@ const putObject = (myBucket, key, body, contentType) =>
  * get more info about using command line tool sox @ http://sox.sourceforge.net/Docs/FAQ
  **/
 const mix_polly_with_background = (background_mp3, polly_voice_mp3, resulting_mp3, duration) =>  
-lambdaAudio.sox('-m ' + background_mp3 + ' ' + polly_voice_mp3 + ' -C 48.01 ' + resulting_mp3 + ' rate 22050 gain -l 16 delay 0 5 fade 0 =' + (duration)+' 2').then(() => {
+lambdaAudio.sox('-m ' + background_mp3 + ' ' + polly_voice_mp3 + ' -C 48.01 ' + resulting_mp3 + ' rate 22050 gain -l 16 delay 2 0 fade 0 =' + (duration + 2)+' 2').then(() => {
     return resulting_mp3;
   }).catch(err => console.error("mix error: " + err));
 
