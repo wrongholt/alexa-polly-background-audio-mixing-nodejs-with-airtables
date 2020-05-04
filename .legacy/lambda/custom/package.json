@@ -1,0 +1,25 @@
+{
+  "name": "audio-polly-tool",
+  "version": "1.2.0",
+  "description": "A tool that combines mp3 and polly speak object.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "W.M. Rongholt",
+  "license": "Apache License",
+  "dependencies": {
+    "airtable": "^0.8.1",
+    "ask-sdk": "^2.8.0",
+    "ask-sdk-core": "^2.7.0",
+    "ask-sdk-model": "^1.19.0",
+    "aws-sdk": "^2.660.0",
+    "fs-extra": "^9.0.0",
+    "i18next": "^15.0.5",
+    "lambda-audio": "^1.0.0",
+    "md5": "^2.2.1",
+    "mp3-duration": "^1.1.0",
+    "node-lame": "^1.2.2",
+    "request": "^2.88.2"
+  }
+}
